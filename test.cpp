@@ -2,10 +2,22 @@
 
 using namespace std;
 
+int n;
+int x[100];
+void loop(int index) {
+    for (int i = 1; i <= 4; i++) {
+        x[index] = i;
+        if (index < n)
+            loop(index + 1);
+        else {
+            for (int j = 1; j <= n; j++)
+                cout << x[j] << " ";
+            cout << endl;
+        }
+    }
+}
+
 int main() {
-    unordered_map<long long, long long> freq;
-    freq[10] = -3;
-    freq[20] = 5;
-    for (auto [a, b]: freq)
-        cout << a << " " << b << endl;
+    cin >> n;
+    loop(1);
 }
